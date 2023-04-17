@@ -1,0 +1,106 @@
+<!-- ---------------------------- ngIF  ---------------------------- -->
+<!--  بتغير الداتا  لاما تضغط علي ال bUtton-->
+
+<div class="container">
+  <div class="paddi" *ngIf="divFlag ; else Data ">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro nulla repellendus debitis, quasi dolor minus dignissimos autem ratione itaque ipsum blanditiis pariatur mollitia eaque tenetur est quo suscipit ex similique.</p>
+  </div>
+  <!-- [ngtemplate] = bst5dmha m3 el [ngIf]  23mle kza aw 23rd kza -->
+  <ng-template #Data>
+<div class="paddi">
+  Anuther Div
+</div>
+  </ng-template>
+<button class="btn btn-primary paddi" (click)="divFlag = true">Show div </button>
+<button class="btn btn-primary paddi" (click)="divFlag = ! divFlag">Show div </button>
+
+
+<!-- -------------------------------------------------- -->
+
+<!-- بتختار compo..
+منهم علي حسب عدد ال length
+معلومه frist div msh bezhr -->
+<!-- el then fe 7ala el true -->
+
+<div class="alert alert-danger" *ngIf="arr.length > 1; then tureCodition ; else falseCodition ">
+<h1>First Div</h1>
+</div>
+
+
+<ng-template  #tureCodition>
+    <div class="alert alert-primary paddii">
+      ture Conditon
+    </div>
+    </ng-template>
+
+
+
+
+  <ng-template #falseCodition>
+<div class="alert alert-primary">
+False Conditon
+</div>
+</ng-template>
+
+</div>
+<!-- -------------------------------------------------- -->
+
+
+
+
+<!-- ------------------------ ngSwitch ------------------------ -->
+<div class="container">
+  <div [ngSwitch]="num">
+       <!-- ngFor btlf 3la el Array -->
+      <ng-container *ngFor="let item of numArray">
+    <!-- ngfor = Loop -->
+    <div class="paddii" *ngSwitchCase="item"> number = {{item}}</div>
+  </ng-container>
+    <!-- <div *ngSwitchCase="'2'"> number = 2</div>
+    <div *ngSwitchCase="'3'"> number = 3</div>
+    <div *ngSwitchCase="'4'"> number = 4</div> -->
+    <!-- defult -->
+    <div *ngSwitchDefault>
+      invalid num
+  </div>
+</div>
+
+
+<!-- ______________________________month_____________________________________ -->
+
+
+
+<!-- hna ana bzhr el month -->
+<div class="container">
+  <div [ngSwitch]="date">
+  <ng-container *ngFor="let m of month ; let i = index">
+    <div class="paddii" *ngSwitchCase="i">number = {{ m }}</div>
+
+  </ng-container>
+  </div>
+</div>
+
+
+
+
+
+<!-- _________________________________ng Style $ ng class__________________________________ -->
+
+<!-- mmkn a7tha fe opject -->
+<h2 [ngClass]="{'bg-warning' : classFlag , 'border' :true}">edae duptate aut ex provident ab iure a consequuntur fugiat vitae nobis.</h2>
+<!-- mmkn a7tha fe array  kman ana mde el kyma el color we el background mn mlf el ts-->
+<h2 [ngClass]="[class1 , class2]">edae duptate aut ex provident ab iure a consequuntur fugiat vitae nobis.</h2>
+<!-- if true or False -->
+<h4 [ngClass]="(numArray.length > 20) ? 'bg-info' : 'bg-secondary'">Lorem ipsum dolor sit amet.</h4>
+<!-- hna ana b8er el color bta3 h2 bkl shola 3n tre2 el class -->
+<!-- <button class="btn btn-danger" (click)="class1 = 'bg-dark'">Change Bg color</button> -->
+<!-- hna ana b3ml kza action m3d b3d -->
+<button class="btn btn-danger paddii"
+ (click)="class1 = 'bg-dark' ; textBlue = 'green' ; handleClick() ">Change Bg color</button>
+
+<!-- <h3 [ngStyle]="{'color' : 'blue'}">Angular</h3> -->
+<!-- hna wa5d el lwon 3n tre2 Var -->
+<h3 class="paddii" [ngStyle]="{'color' : textBlue, 'border' : '2px solid black'}">Angular</h3>
+
+<h3 [ngStyle]="{'background' : arr.length > 4 ? 'lightgray' : 'gold'}">fahmy</h3>
+
